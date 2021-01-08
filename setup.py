@@ -4,7 +4,7 @@ import setuptools
 setup(
     name='GCT',
     packages=setuptools.find_packages(),
-    version='1.4.1',
+    version='0.2',
     description='Short tools for fast idea checking.',
     long_description='...',
     author='Kilbas Igor',

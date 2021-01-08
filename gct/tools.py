@@ -14,9 +14,16 @@ def load_cifar10():
 
 def load_boston_housing():
     (Xtrain, Ytrain), (Xtest, Ytest) = boston_housing.load_data()
+    Ytrain = Ytrain.reshape(-1, 1)
+    Ytest = Ytest.reshape(-1, 1)
 
     X_mean, X_std = Xtrain.mean(axis=0), Xtrain.std(axis=0)
 
     Xtrain = (Xtrain - X_mean) / X_std
     Xtest = (Xtest - X_mean) / X_std
-    return (Xtrain, Ytrain), (Xtest, Ytest), (X_mean, X_std)
+
+    Y_mean, Y_std = Ytrain.mean(axis=0), Ytrain.std(axis=0)
+
+    Ytrain = (Ytrain - Y_mean) / Y_std
+    Ytest = (Ytest - Y_mean) / Y_std
+    return (Xtrain, Ytrain), (Xtest, Ytest), (X_mean, X_std), (Y_mean, Y_std)
